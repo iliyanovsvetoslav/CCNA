@@ -1,0 +1,218 @@
+Tue Oct 10 19:36:51 2023   Router0   Router>?
+Tue Oct 10 19:40:02 2023   Router0   Router>en
+Tue Oct 10 19:41:03 2023   Router0   Router#?
+Tue Oct 10 19:42:16 2023   Router0   Router#?
+Tue Oct 10 19:43:00 2023   Router0   Router#clock set ?
+Tue Oct 10 19:43:19 2023   Router0   Router#clock set 19:43:45
+Tue Oct 10 19:43:23 2023   Router0   Router#clock set 19:43:45 ?
+Tue Oct 10 19:43:35 2023   Router0   Router#clock set 19:43:45 10 ?
+Tue Oct 10 19:44:00 2023   Router0   Router#clock set 19:43:45 10 Sep 2023
+Tue Oct 10 19:44:54 2023   Router0   Router#sh run
+Tue Oct 10 20:06:58 2023   Router0   Router>en
+Tue Oct 10 20:07:01 2023   Router0   Router#sh run
+Tue Oct 10 20:10:14 2023   Router0   Router#conf ter
+Tue Oct 10 20:10:53 2023   Router0   Router(config)#host R1
+Tue Oct 10 20:11:46 2023   Router0   R1(config)#interface gigabitEthernet 0/1
+Tue Oct 10 20:12:18 2023   Router0   R1(config-if)#no sh
+Tue Oct 10 20:16:09 2023   Router0   R1(config-if)#ip?
+Tue Oct 10 20:16:35 2023   Router0   R1(config-if)#ip address 192.168.1.1 255.255.255.0
+Tue Oct 10 20:17:07 2023   Router0   R1(config-if)#exit
+Tue Oct 10 20:17:25 2023   Router0   R1(config)#interface gigabitEthernet 0/3/0
+Tue Oct 10 20:18:10 2023   Router0   R1(config-if)#ip address 192.168.2.1 255.255.255.0
+Tue Oct 10 20:19:50 2023   Router0   R1(config-if)#exit
+Tue Oct 10 20:21:39 2023   Router0   R1(config)#interface gigabitEthernet 0/3/0
+Tue Oct 10 20:21:41 2023   Router0   R1(config-if)#no sh
+Tue Oct 10 20:26:27 2023   Router0   R1(config-if)#wr mem
+Tue Oct 10 20:26:29 2023   Router0   R1(config-if)#wr
+Tue Oct 10 20:26:34 2023   Router0   R1(config-if)#exit
+Tue Oct 10 20:26:36 2023   Router0   R1(config)#wr
+Tue Oct 10 20:26:39 2023   Router0   R1(config)#exit
+Tue Oct 10 20:26:41 2023   Router0   R1#wr
+Tue Oct 10 20:40:10 2023   Router1   Router>en
+Tue Oct 10 20:40:18 2023   Router1   Router#host R2
+Tue Oct 10 20:40:23 2023   Router1   Router#conf t
+Tue Oct 10 20:40:31 2023   Router1   Router(config)#host R2
+Tue Oct 10 20:40:53 2023   Router1   R2(config)#interface gigabitEthernet 0/1
+Tue Oct 10 20:41:09 2023   Router1   R2(config-if)#no sh
+Tue Oct 10 20:41:23 2023   Router1   R2(config-if)#ip address 192.168.3.1 255.255.255.0
+Tue Oct 10 20:42:22 2023   Router1   R2(config-if)#desc Kat1 baglantisi
+Tue Oct 10 20:42:48 2023   Router1   R2(config-if)#int gi0/2
+Tue Oct 10 20:42:52 2023   Router1   R2(config-if)#no sh
+Tue Oct 10 20:43:07 2023   Router1   R2(config-if)#ip address 192.168.4.1 255.255.255.0
+Tue Oct 10 20:43:34 2023   Router1   R2(config-if)#int gi0/3/0
+Tue Oct 10 20:43:38 2023   Router1   R2(config-if)#no sh
+Tue Oct 10 20:44:30 2023   Router1   R2(config-if)#ip address 1.1.1.2 255.255.255.252
+Tue Oct 10 20:44:37 2023   Router1   R2(config-if)#wr
+Tue Oct 10 20:44:40 2023   Router1   R2(config-if)#exit
+Tue Oct 10 20:44:42 2023   Router1   R2(config)#wr
+Tue Oct 10 20:45:32 2023   Router1   R2(config)#do wr
+Tue Oct 10 20:47:30 2023   Router0   R1>en
+Tue Oct 10 20:47:31 2023   Router0   R1#conf t
+Tue Oct 10 20:47:47 2023   Router0   R1(config)#int gig0/2/0
+Tue Oct 10 20:47:52 2023   Router0   R1(config-if)#no sh
+Tue Oct 10 20:48:15 2023   Router0   R1(config-if)#ip address 1.1.1.1 255.255.255.252
+Tue Oct 10 20:48:18 2023   Router0   R1(config-if)#do wr
+Tue Oct 10 20:48:28 2023   Router0   R1(config-if)#exit
+Tue Oct 10 20:48:31 2023   Router0   R1(config)#exit
+Tue Oct 10 20:49:41 2023   Router0   R1#ping 1.1.1.2
+Tue Oct 10 20:49:55 2023   Router0   R1#ping 1.1.1.2
+Thu Oct 12 18:38:31 2023   Router0   R1>en
+Thu Oct 12 18:38:33 2023   Router0   R1#conf
+Thu Oct 12 18:38:42 2023   Router0   R1#conf ter
+Thu Oct 12 18:40:10 2023   Router0   R1(config)#?
+Thu Oct 12 18:40:17 2023   Router0   R1(config)#ip?
+Thu Oct 12 18:40:46 2023   Router0   R1(config)#ip route 192.168.3.0 255.255.255.0 1.1.1.2
+Thu Oct 12 18:40:53 2023   Router0   R1(config)#ip route 192.168.4.0 255.255.255.0 1.1.1.2
+Thu Oct 12 18:40:56 2023   Router0   R1(config)#do wr
+Thu Oct 12 18:41:11 2023   Router0   R1(config)#ping 192.168.3.10
+Thu Oct 12 18:41:35 2023   Router1   R2>en
+Thu Oct 12 18:41:37 2023   Router1   R2#conf terminal
+Thu Oct 12 18:41:54 2023   Router1   R2(config)#ip route 192.168.1.0 255.255.255.0 1.1.1.1
+Thu Oct 12 18:42:02 2023   Router1   R2(config)#ip route 192.168.2.0 255.255.255.0 1.1.1.1
+Thu Oct 12 18:42:05 2023   Router1   R2(config)#do wr
+Thu Oct 12 19:30:58 2023   Pendik   Switch>en
+Thu Oct 12 19:31:04 2023   Pendik   Switch#hostname Istanbul2
+Thu Oct 12 20:17:59 2023   Ankara   Router>en
+Thu Oct 12 20:17:59 2023   Ankara   Router#conf t
+Thu Oct 12 20:17:59 2023   Ankara   Router(config)#hostname Ankara
+Thu Oct 12 20:17:59 2023   Ankara   Ankara(config)#int gi 0/3/0
+Thu Oct 12 20:17:59 2023   Ankara   Ankara(config-if)#no sh
+Thu Oct 12 20:17:59 2023   Ankara   Ankara(config-if)#ip add 1.1.1.6 255.255.255.0
+Thu Oct 12 20:17:59 2023   Ankara   Ankara(config-if)#desc MPLS baglantisi
+Thu Oct 12 20:17:59 2023   Ankara   Ankara(config-if)#exit
+Thu Oct 12 20:17:59 2023   Ankara   Ankara(config)#int gi 0/1
+Thu Oct 12 20:17:59 2023   Ankara   Ankara(config-if)#no sh
+Thu Oct 12 20:17:59 2023   Ankara   Ankara(config-if)#ip add 10.6.1.1 255.255.255.0
+Thu Oct 12 20:17:59 2023   Ankara   Ankara(config-if)#exit
+Thu Oct 12 20:17:59 2023   Ankara   Ankara(config)#int gi 0/2
+Thu Oct 12 20:17:59 2023   Ankara   Ankara(config-if)#no sh
+Thu Oct 12 20:17:59 2023   Ankara   Ankara(config-if)#ip add 10.6.2.1 255.255.255.0
+Thu Oct 12 20:17:59 2023   Ankara   Ankara(config-if)#exit
+Thu Oct 12 20:17:59 2023   Ankara   Ankara(config)#ip route 10.19.1.0 255.255.255.0 1.1.1.19
+Thu Oct 12 20:17:59 2023   Ankara   Ankara(config)#ip route 10.19.2.0 255.255.255.0 1.1.1.19
+Thu Oct 12 20:17:59 2023   Ankara   Ankara(config)#ip route 10.35.1.0 255.255.255.0 1.1.1.35
+Thu Oct 12 20:17:59 2023   Ankara   Ankara(config)#ip route 10.35.2.0 255.255.255.0 1.1.1.19
+Thu Oct 12 20:17:59 2023   Ankara   Ankara(config)#ip route 10.34.1.0 255.255.255.0 1.1.1.34
+Thu Oct 12 20:17:59 2023   Ankara   Ankara(config)#ip route 10.34.2.0 255.255.255.0 1.1.1.34
+Thu Oct 12 20:17:59 2023   Ankara   Ankara(config)#enab sec cisco
+Thu Oct 12 20:17:59 2023   Ankara   Ankara(config)#ip domain-name cisco
+Thu Oct 12 20:17:59 2023   Ankara   Ankara(config)#service password-encryption
+Thu Oct 12 20:17:59 2023   Ankara   Ankara(config)#crypto key generate rsa
+Thu Oct 12 20:17:59 2023   Ankara   Ankara(config)#username sinan pas cisco
+Thu Oct 12 20:17:59 2023   Ankara   Ankara(config)#line vty 0 4
+Thu Oct 12 20:17:59 2023   Ankara   Ankara(config-line)#login local
+Thu Oct 12 20:17:59 2023   Ankara   Ankara(config-line)#transport input all
+Thu Oct 12 20:17:59 2023   Ankara   Ankara(config-line)#exit
+Thu Oct 12 20:17:59 2023   Ankara   Ankara(config)#ip ssh version 2
+Thu Oct 12 20:17:59 2023   Ankara   Ankara(config)#ip ssh authentication-retries 4
+Thu Oct 12 20:17:59 2023   Ankara   Ankara(config)#ip ssh time-out 30
+Thu Oct 12 20:21:35 2023   Corum   Router>en
+Thu Oct 12 20:21:35 2023   Corum   Router#conf t
+Thu Oct 12 20:21:35 2023   Corum   Router(config)#hostname Corum
+Thu Oct 12 20:21:35 2023   Corum   Corum(config)#int gi 0/3/0
+Thu Oct 12 20:21:35 2023   Corum   Corum(config-if)#no sh
+Thu Oct 12 20:21:35 2023   Corum   Corum(config-if)#ip add 1.1.1.19 255.255.255.0
+Thu Oct 12 20:21:35 2023   Corum   Corum(config-if)#desc MPLS baglantisi
+Thu Oct 12 20:21:35 2023   Corum   Corum(config-if)#exit
+Thu Oct 12 20:21:35 2023   Corum   Corum(config)#int gi 0/1
+Thu Oct 12 20:21:35 2023   Corum   Corum(config-if)#no sh
+Thu Oct 12 20:21:35 2023   Corum   Corum(config-if)#ip add 10.19.1.1 255.255.255.0
+Thu Oct 12 20:21:35 2023   Corum   Corum(config-if)#exit
+Thu Oct 12 20:21:35 2023   Corum   Corum(config)#int gi 0/2
+Thu Oct 12 20:21:35 2023   Corum   Corum(config-if)#no sh
+Thu Oct 12 20:21:35 2023   Corum   Corum(config-if)#ip add 10.19.2.1 255.255.255.0
+Thu Oct 12 20:21:35 2023   Corum   Corum(config-if)#exit
+Thu Oct 12 20:21:35 2023   Corum   Corum(config)#ip route 10.6.1.0 255.255.255.0 1.1.1.6
+Thu Oct 12 20:21:35 2023   Corum   Corum(config)#ip route 10.6.2.0 255.255.255.0 1.1.1.6
+Thu Oct 12 20:21:35 2023   Corum   Corum(config)#ip route 10.35.1.0 255.255.255.0 1.1.1.35
+Thu Oct 12 20:21:35 2023   Corum   Corum(config)#ip route 10.35.2.0 255.255.255.0 1.1.1.19
+Thu Oct 12 20:21:35 2023   Corum   Corum(config)#ip route 10.34.1.0 255.255.255.0 1.1.1.34
+Thu Oct 12 20:21:35 2023   Corum   Corum(config)#ip route 10.34.2.0 255.255.255.0 1.1.1.34
+Thu Oct 12 20:21:35 2023   Corum   Corum(config)#enab sec cisco
+Thu Oct 12 20:21:35 2023   Corum   Corum(config)#ip domain-name cisco
+Thu Oct 12 20:21:35 2023   Corum   Corum(config)#service password-encryption
+Thu Oct 12 20:21:35 2023   Corum   Corum(config)#crypto key generate rsa
+Thu Oct 12 20:21:35 2023   Corum   Corum(config)#username sinan pas cisco
+Thu Oct 12 20:21:35 2023   Corum   Corum(config)#line vty 0 4
+Thu Oct 12 20:21:35 2023   Corum   Corum(config-line)#login local
+Thu Oct 12 20:21:35 2023   Corum   Corum(config-line)#transport input all
+Thu Oct 12 20:21:35 2023   Corum   Corum(config-line)#exit
+Thu Oct 12 20:21:35 2023   Corum   Corum(config)#ip ssh version 2
+Thu Oct 12 20:21:35 2023   Corum   Corum(config)#ip ssh authentication-retries 4
+Thu Oct 12 20:21:49 2023   Corum   Corum(config)#ip ssh time-out 30
+Thu Oct 12 20:22:13 2023   Corum   Corum(config)#ping www.cisco.com
+Thu Oct 12 20:22:18 2023   Corum   Corum(config)#exit
+Thu Oct 12 20:22:27 2023   Corum   Corum#ping www.cisco.com
+Thu Oct 12 20:25:42 2023   İzmir   Router>en
+Thu Oct 12 20:25:42 2023   İzmir   Router#conf t
+Thu Oct 12 20:25:42 2023   İzmir   Router(config)#hostname zmir
+Thu Oct 12 20:25:42 2023   İzmir   zmir(config)#int gi 0/3/0
+Thu Oct 12 20:25:42 2023   İzmir   zmir(config-if)#no sh
+Thu Oct 12 20:25:42 2023   İzmir   zmir(config-if)#ip add 1.1.1.35 255.255.255.0
+Thu Oct 12 20:25:42 2023   İzmir   zmir(config-if)#desc MPLS baglantisi
+Thu Oct 12 20:25:42 2023   İzmir   zmir(config-if)#exit
+Thu Oct 12 20:25:42 2023   İzmir   zmir(config)#int gi 0/1
+Thu Oct 12 20:25:42 2023   İzmir   zmir(config-if)#no sh
+Thu Oct 12 20:25:42 2023   İzmir   zmir(config-if)#ip add 10.35.1.1 255.255.255.0
+Thu Oct 12 20:25:42 2023   İzmir   zmir(config-if)#exit
+Thu Oct 12 20:25:42 2023   İzmir   zmir(config)#int gi 0/2
+Thu Oct 12 20:25:42 2023   İzmir   zmir(config-if)#no sh
+Thu Oct 12 20:25:42 2023   İzmir   zmir(config-if)#ip add 10.35.2.1 255.255.255.0
+Thu Oct 12 20:25:42 2023   İzmir   zmir(config-if)#exit
+Thu Oct 12 20:25:42 2023   İzmir   zmir(config)#ip route 10.6.1.0 255.255.255.0 1.1.1.6
+Thu Oct 12 20:25:42 2023   İzmir   zmir(config)#ip route 10.6.2.0 255.255.255.0 1.1.1.6
+Thu Oct 12 20:25:42 2023   İzmir   zmir(config)#ip route 10.19.1.0 255.255.255.0 1.1.1.19
+Thu Oct 12 20:25:42 2023   İzmir   zmir(config)#ip route 10.19.2.0 255.255.255.0 1.1.1.19
+Thu Oct 12 20:25:42 2023   İzmir   zmir(config)#ip route 10.34.1.0 255.255.255.0 1.1.1.34
+Thu Oct 12 20:25:42 2023   İzmir   zmir(config)#ip route 10.34.2.0 255.255.255.0 1.1.1.34
+Thu Oct 12 20:25:42 2023   İzmir   zmir(config)#enab sec cisco
+Thu Oct 12 20:25:42 2023   İzmir   zmir(config)#ip domain-name cisco
+Thu Oct 12 20:25:42 2023   İzmir   zmir(config)#service password-encryption
+Thu Oct 12 20:25:42 2023   İzmir   zmir(config)#crypto key generate rsa
+Thu Oct 12 20:25:42 2023   İzmir   zmir(config)#username sinan pas cisco
+Thu Oct 12 20:25:42 2023   İzmir   zmir(config)#line vty 0 4
+Thu Oct 12 20:25:42 2023   İzmir   zmir(config-line)#login local
+Thu Oct 12 20:25:42 2023   İzmir   zmir(config-line)#transport input all
+Thu Oct 12 20:25:42 2023   İzmir   zmir(config-line)#exit
+Thu Oct 12 20:25:42 2023   İzmir   zmir(config)#ip ssh version 2
+Thu Oct 12 20:25:42 2023   İzmir   zmir(config)#ip ssh authentication-retries 4
+Thu Oct 12 20:25:45 2023   İzmir   zmir(config)#ip ssh time-out 30
+Thu Oct 12 20:27:29 2023   Istanbul   Router>en
+Thu Oct 12 20:27:29 2023   Istanbul   Router#conf t
+Thu Oct 12 20:27:29 2023   Istanbul   Router(config)#hostname Istanbul
+Thu Oct 12 20:27:29 2023   Istanbul   Istanbul(config)#int gi 0/3/0
+Thu Oct 12 20:27:29 2023   Istanbul   Istanbul(config-if)#no sh
+Thu Oct 12 20:27:29 2023   Istanbul   Istanbul(config-if)#ip add 1.1.1.34 255.255.255.0
+Thu Oct 12 20:27:29 2023   Istanbul   Istanbul(config-if)#desc MPLS baglantisi
+Thu Oct 12 20:27:29 2023   Istanbul   Istanbul(config-if)#exit
+Thu Oct 12 20:27:29 2023   Istanbul   Istanbul(config)#int gi 0/1
+Thu Oct 12 20:27:29 2023   Istanbul   Istanbul(config-if)#no sh
+Thu Oct 12 20:27:29 2023   Istanbul   Istanbul(config-if)#ip add 10.34.1.1 255.255.255.0
+Thu Oct 12 20:27:29 2023   Istanbul   Istanbul(config-if)#exit
+Thu Oct 12 20:27:29 2023   Istanbul   Istanbul(config)#int gi 0/2
+Thu Oct 12 20:27:29 2023   Istanbul   Istanbul(config-if)#no sh
+Thu Oct 12 20:27:29 2023   Istanbul   Istanbul(config-if)#ip add 10.34.2.1 255.255.255.0
+Thu Oct 12 20:27:29 2023   Istanbul   Istanbul(config-if)#exit
+Thu Oct 12 20:27:29 2023   Istanbul   Istanbul(config)#ip route 10.6.1.0 255.255.255.0 1.1.1.6
+Thu Oct 12 20:27:29 2023   Istanbul   Istanbul(config)#ip route 10.6.2.0 255.255.255.0 1.1.1.6
+Thu Oct 12 20:27:29 2023   Istanbul   Istanbul(config)#ip route 10.19.1.0 255.255.255.0 1.1.1.19
+Thu Oct 12 20:27:29 2023   Istanbul   Istanbul(config)#ip route 10.19.2.0 255.255.255.0 1.1.1.19
+Thu Oct 12 20:27:29 2023   Istanbul   Istanbul(config)#ip route 10.35.1.0 255.255.255.0 1.1.1.35
+Thu Oct 12 20:27:29 2023   Istanbul   Istanbul(config)#ip route 10.35.2.0 255.255.255.0 1.1.1.35
+Thu Oct 12 20:27:29 2023   Istanbul   Istanbul(config)#enab sec cisco
+Thu Oct 12 20:27:29 2023   Istanbul   Istanbul(config)#ip domain-name cisco
+Thu Oct 12 20:27:29 2023   Istanbul   Istanbul(config)#service password-encryption
+Thu Oct 12 20:27:29 2023   Istanbul   Istanbul(config)#crypto key generate rsa
+Thu Oct 12 20:27:29 2023   Istanbul   Istanbul(config)#username sinan pas cisco
+Thu Oct 12 20:27:29 2023   Istanbul   Istanbul(config)#line vty 0 4
+Thu Oct 12 20:27:29 2023   Istanbul   Istanbul(config-line)#login local
+Thu Oct 12 20:27:29 2023   Istanbul   Istanbul(config-line)#transport input all
+Thu Oct 12 20:27:29 2023   Istanbul   Istanbul(config-line)#exit
+Thu Oct 12 20:27:29 2023   Istanbul   Istanbul(config)#ip ssh version 2
+Thu Oct 12 20:27:29 2023   Istanbul   Istanbul(config)#ip ssh authentication-retries 4
+Thu Oct 12 20:27:32 2023   Istanbul   Istanbul(config)#ip ssh time-out 30
+Thu Oct 12 20:28:25 2023   Corum   Corum#en
+Thu Oct 12 20:28:28 2023   Corum   Corum#conf t
+Thu Oct 12 20:28:40 2023   Corum   Corum(config)#ip route 10.35.2.0 255.255.255.0 1.1.1.35
+Thu Oct 12 20:28:45 2023   Corum   Corum(config)#exit
+Thu Oct 12 20:28:49 2023   Corum   Corum#sh ip route

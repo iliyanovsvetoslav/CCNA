@@ -1,0 +1,24 @@
+en
+conf t
+hostname istanbul
+int gig0/3/0
+ip address 1.1.1.34 255.255.255.0
+no sh
+exit
+int gig 0/1
+ip address 10.34.1.1 255.255.255.0
+no sh
+exit
+int gig 0/2
+ip address 10.34.2.1 255.255.255.0
+no sh
+exit
+router eigrp 100
+no aut
+net 1.1.1.0
+net 10.34.1.0
+net 10.34.2.0
+pass gi 0/1
+pass gig 0/2
+exit
+

@@ -1,0 +1,29 @@
+en
+conf t
+hostname ankara
+int gig0/3/0
+ip address 1.1.1.6 255.255.255.0
+no sh
+exit
+int gig 0/1
+ip address 10.6.1.1 255.255.255.0
+no sh
+exit
+int gig 0/2
+ip address 10.6.2.1 255.255.255.0
+no sh
+exit
+router ospf 100
+net 1.1.1.0 0.0.0.255 area 0
+net 10.6.1.0 0.0.0.255 area 0
+net 10.6.2.0 0.0.0.255 area 0
+pass gi 0/1
+pass gig 0/2
+exit
+
+int gig 0/3/0
+ip ospf authentication
+ip ospf authentication-key xxxx
+
+
+show ip ospf neighbor

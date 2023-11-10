@@ -1,0 +1,24 @@
+enable
+conf t
+host Istanbul
+
+int gig 0/3/0
+no sh
+ip address 1.1.1.34 255.255.255.0
+exit
+int gig 0/1
+no sh
+ip address 10.34.1.1 255.255.255.0
+exit
+int gig 0/2
+no sh
+ip address 10.34.2.1 255.255.255.0
+exit
+router bgp 34
+net 1.1.1.0 mask 255.255.255.0
+net 10.34.1.0 mask 255.255.255.0
+net 10.34.2.0 mask 255.255.255.0
+nei 1.1.1.6 remote-as 6
+nei 1.1.1.19 remote-as 19
+nei 1.1.1.35 remote-as 35
+exit

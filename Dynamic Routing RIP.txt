@@ -1,0 +1,42 @@
+Dynamic Routing RIP
+
+
+en
+conf t
+host Istanbul
+int gi 0/3/0
+no sh
+ip add 1.1.1.34 255.255.255.0
+exit
+int gi 0/1
+no sh
+ip add 10.34.1.1 255.255.255.0
+exit
+int gi 0/2
+no sh
+ip add 10.34.2.1 255.255.255.0
+exit
+
+router rip
+ver 2
+no aut
+net 1.1.1.0
+net 10.34.1.0
+net 10.34.2.0
+pass gi0/1
+pass gi0/2
+exit
+
+enab sec cisco
+ip domain-name cisco
+service password-encryption
+crypto key generate rsa
+1024
+username sinan pas cisco
+line vty 0 4
+login local
+transport input all
+exit
+ip ssh version 2
+ip ssh authentication-retries 4
+ip ssh time-out 30

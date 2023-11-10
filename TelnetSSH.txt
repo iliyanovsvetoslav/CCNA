@@ -1,0 +1,13 @@
+enab sec cisco
+ip domain-name cisco
+service password-encryption
+crypto key generate rsa
+1024
+username sinan pas cisco
+line vty 0 4
+login local
+transport input all
+exit
+ip ssh version 2
+ip ssh authentication-retries 4
+ip ssh time-out 30
