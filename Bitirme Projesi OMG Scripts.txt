@@ -1,0 +1,69 @@
+A-Blk-OMG
+enable
+Conf t
+hostname A-Blk_OMG
+vlan 10
+vlan 11
+vlan 12
+vlan 19
+exit
+int vlan 19
+ip address 192.168.19.2 255.255.255.0
+no sh
+exit
+ip default-gateway 192.168.19.1
+int ran gig 1/0/1-4
+sw mode trunk
+int gig 1/0/5
+sw mod tr
+sw trunk nat vlan 19
+exit
+
+Bim-OMG
+enable
+Conf t
+hostname Bim-OMG
+vlan 20
+vlan 21
+vlan 22
+vlan 29
+exit
+int vlan 29
+ip address 192.168.29.2 255.255.255.0
+no sh
+exit
+ip default-gateway 192.168.29.1
+int ran gig 1/0/1, gig1/0/4
+sw mode trunk
+int gig 1/0/5
+sw mod tr
+sw trunk nat vlan 29
+exit
+int range gig 1/0/6-7
+channel-group 1 mode desirable
+exit
+int po1
+swi tru en do
+sw mode trunk
+exit
+
+B-Blk-OMG
+enable
+Conf t
+hostname B-Blk_OMG
+vlan 30
+vlan 31
+vlan 32
+vlan 39
+exit
+int vlan 39
+ip address 192.168.39.2 255.255.255.0
+no sh
+exit
+ip default-gateway 192.168.39.1
+int ran gig 1/0/1-4
+sw mode trunk
+int gig 1/0/5
+sw mod tr
+sw trunk nat vlan 39
+exit

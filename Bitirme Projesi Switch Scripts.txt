@@ -1,0 +1,289 @@
+A-Blk-Kat3
+enable
+conf t
+hostname A-Blk-Kat3
+vlan 10
+vlan 11
+vlan 12
+vlan 19
+exit
+int range fa 0/1-10
+swi mode access
+swi acc vlan 10
+exit
+int range fa 0/11-20
+swi mode access
+swi acc vlan 11
+exit
+int gig0/2
+swi trunk en dot
+swi trunk native vlan 19
+swi mode trunk
+exit
+int gig 0/1
+swi trunk en dot
+swi mode trunk
+exit
+int vlan 19
+ip address 192.168.19.5 255.255.255.0
+no sh
+exit
+ip default-gateway 192.168.19.1
+int range fa0/1-20
+swit port-sec
+swi  port-sec mac-add sticky
+swi  port-sec violation restrict
+exit
+
+
+
+
+
+A-Blk-Kat2
+enable
+conf t
+hostname A-Blk-Kat2
+vlan 10
+vlan 11
+vlan 12
+vlan 19
+exit
+int range fa 0/1-10
+swi mode access
+swi acc vlan 10
+exit
+int range fa 0/11-20
+swi mode access
+swi acc vlan 11
+exit
+int gig0/2
+swi trunk en dot
+swi trunk native vlan 19
+swi mode trunk
+exit
+int gig 0/1
+swi trunk en dot
+swi mode trunk
+exit
+int vlan 19
+ip address 192.168.19.4 255.255.255.0
+no sh
+exit
+ip default-gateway 192.168.19.1
+int range fa0/1-20
+swit port-sec
+swi  port-sec mac-add sticky
+swi  port-sec violation restrict
+exit
+
+
+A-Blk-Kat1
+enable
+conf t
+hostname A-Blk-Kat1
+vlan 10
+vlan 11
+vlan 12
+vlan 19
+exit
+int range fa 0/1-10
+swi mode access
+swi acc vlan 10
+exit
+int range fa 0/11-20
+swi mode access
+swi acc vlan 11
+exit
+int gig0/2
+swi trunk en dot
+swi trunk native vlan 19
+swi mode trunk
+exit
+int gig 0/1
+swi trunk en dot
+swi mode trunk
+exit
+int vlan 19
+ip address 192.168.19.3 255.255.255.0
+no sh
+exit
+ip default-gateway 192.168.19.1
+int range fa0/1-20
+swit port-sec
+swi  port-sec mac-add sticky
+swi  port-sec violation restrict
+exit
+
+
+B-Blk-Kat3
+enable
+conf t
+hostname B-Blk-Kat3
+vlan 30
+vlan 31
+vlan 32
+vlan 39
+exit
+int range fa 0/1-10
+swi mode access
+swi acc vlan 30
+exit
+int range fa 0/11-20
+swi mode access
+swi acc vlan 31
+exit
+int gig0/2
+swi trunk en dot
+swi trunk native vlan 39
+swi mode trunk
+exit
+int gig 0/1
+swi trunk en dot
+swi mode trunk
+exit
+int vlan 39
+ip address 192.168.39.5 255.255.255.0
+no sh
+exit
+ip default-gateway 192.168.39.1
+int range fa0/1-20
+swit port-sec
+swi  port-sec mac-add sticky
+swi  port-sec violation restrict
+exit
+
+
+
+B-Blk-Kat2
+enable
+conf t
+hostname B-Blk-Kat2
+vlan 30
+vlan 31
+vlan 32
+vlan 39
+exit
+int range fa 0/1-10
+swi mode access
+swi acc vlan 30
+exit
+int range fa 0/11-20
+swi mode access
+swi acc vlan 31
+exit
+int gig0/2
+swi trunk en dot
+swi trunk native vlan 39
+swi mode trunk
+exit
+int gig 0/1
+swi trunk en dot
+swi mode trunk
+exit
+int vlan 39
+ip address 192.168.39.4 255.255.255.0
+no sh
+exit
+ip default-gateway 192.168.39.1
+int range fa0/1-20
+swit port-sec
+swi  port-sec mac-add sticky
+swi  port-sec violation restrict
+exit
+
+
+B-Blk-Kat1
+enable
+conf t
+hostname B-Blk-Kat1
+vlan 30
+vlan 31
+vlan 32
+vlan 39
+exit
+int range fa 0/1-10
+swi mode access
+swi acc vlan 30
+exit
+int range fa 0/11-20
+swi mode access
+swi acc vlan 31
+exit
+int gig0/2
+swi trunk en dot
+swi trunk native vlan 39
+swi mode trunk
+exit
+int gig 0/1
+swi trunk en dot
+swi mode trunk
+exit
+int vlan 39
+ip address 192.168.39.3 255.255.255.0
+no sh
+exit
+ip default-gateway 192.168.39.1
+int range fa0/1-20
+swit port-sec
+swi  port-sec mac-add sticky
+swi  port-sec violation restrict
+exit
+
+
+
+Bim-Kat2
+enable
+conf t
+hostname Bim-Kat2
+vlan 20
+vlan 21
+vlan 22
+vlan 29
+exit
+int gig1/0/1
+swi mode trunk
+exit
+int gig 1/0/5
+swi mode trunk
+swi trunk native vlan 29
+exit
+int gig 1/0/2-3
+swi mode acc
+swi access vlan 20
+exit
+int vlan 29
+ip address 192.168.29.4 255.255.255.0
+no sh
+exit
+ip default-gateway 192.168.29.1
+
+Bim-Kat1
+enable
+conf t
+hostname Bim-Kat1
+vlan 20
+vlan 21
+vlan 22
+vlan 29
+exit
+int vlan 29
+ip address 192.168.29.3 255.255.255.0
+no sh
+exit
+int gig1/0/5
+swi mode trunk
+swi trunk native vlan 29
+exit
+int range gig 1/0/2-3
+swi mode acc
+swi access vlan 21
+exit
+int range gig1/0/6-7
+channel-group 1 mode desirable
+exit
+int po1
+swi mode trunk
+exit
+ip default-gateway 192.168.29.1
+
+
